@@ -2,12 +2,18 @@ package budget;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class BudgetPlannerrApplication {
+public class BudgetPlannerrApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BudgetPlannerrApplication.class, args);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(BudgetPlannerrApplication.class);
+    }
 
+    public static void main(String[] args) {
+        SpringApplication.run(BudgetPlannerrApplication.class, args);
+    }
 }
